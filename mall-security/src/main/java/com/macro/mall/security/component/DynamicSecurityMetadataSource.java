@@ -15,12 +15,15 @@ import java.util.*;
  * 动态权限数据源，用于获取动态权限规则
  * Created by macro on 2020/2/7.
  */
+
+//这里主要是为DynamicSecurityFilter（AbstractSecurityInterceptor） 实现 权限规则的获取，并封装
 public class DynamicSecurityMetadataSource implements FilterInvocationSecurityMetadataSource {
 
     private static Map<String, ConfigAttribute> configAttributeMap = null;
     @Autowired
     private DynamicSecurityService dynamicSecurityService;
 
+    //权限相关的内容是
     @PostConstruct
     public void loadDataSource() {
         configAttributeMap = dynamicSecurityService.loadDataSource();

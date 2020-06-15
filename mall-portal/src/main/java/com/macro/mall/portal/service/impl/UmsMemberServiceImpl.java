@@ -103,7 +103,7 @@ public class UmsMemberServiceImpl implements UmsMemberService {
     }
 
     @Override
-    public String generateAuthCode(String telephone) {
+    public String   generateAuthCode(String telephone) {
         StringBuilder sb = new StringBuilder();
         Random random = new Random();
         for(int i=0;i<6;i++){

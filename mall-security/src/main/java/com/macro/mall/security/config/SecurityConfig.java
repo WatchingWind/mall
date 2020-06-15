@@ -27,6 +27,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired(required = false)
     private DynamicSecurityService dynamicSecurityService;
 
+    //自定义过滤资源和非过滤资源
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry registry = httpSecurity
@@ -63,6 +64,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         }
     }
 
+    //配置userDetails 和 密码加密
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService())
@@ -78,6 +80,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public JwtAuthenticationTokenFilter jwtAuthenticationTokenFilter() {
         return new JwtAuthenticationTokenFilter();
     }
+
 
     @Bean
     @Override

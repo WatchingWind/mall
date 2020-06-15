@@ -22,7 +22,7 @@ public class BindingResultAspect {
     public void BindingResult() {
     }
 
-    @Around("BindingResult()")
+    @Around("BindingResult()")  // @Validated和BindingResult bindingResult是配对出现
     public Object doAround(ProceedingJoinPoint joinPoint) throws Throwable {
         Object[] args = joinPoint.getArgs();
         for (Object arg : args) {
